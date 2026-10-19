@@ -44,7 +44,7 @@ bg1sprite.topleft = (0, 0)
 bg2sprite.topleft = (0, -800)
 
 velocity = 1
-
+Score = 0
 
 
 
@@ -56,11 +56,13 @@ while Running:
     obstacle3sprite.y = obstacle3sprite.y + velocity
     if obstacle1sprite.y > 800:
         obstacle1sprite.y = 0
+        Score = Score + 1
     if obstacle2sprite.y > 800:
-            obstacle2sprite.y = 0
+        obstacle2sprite.y = 0
+        Score = Score + 1
     if obstacle3sprite.y > 800:
-            obstacle3sprite.y = 0
-
+        obstacle3sprite.y = 0
+        Score = Score + 1
     
         
     
@@ -86,6 +88,9 @@ while Running:
         text1 = font1.render("You lose", True, "black")
         velocity = 0
         screen.blit(text1, (200, 400))
+        text2 = font1.render("Your score was " + str(Score), True, "black")
+        
+    
                 
 
     screen.fill("black")
@@ -97,6 +102,7 @@ while Running:
     screen.blit(obstacle3, obstacle3sprite)
     if velocity == 0:
          screen.blit(text1, (200, 400))
+         screen.blit(text2, (400,600))
     
         
 
